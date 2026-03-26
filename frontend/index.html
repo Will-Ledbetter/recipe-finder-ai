@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder - AI-Powered Recipe Suggestions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍳 Recipe Finder</h1>
+            <p>Upload photos of your fridge and/or pantry to get recipe suggestions</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="imageInput" accept="image/*,.heic,.heif" multiple>
+                    <label for="imageInput">
+                        <div class="upload-icon">📸</div>
+                        <p>Upload or take photos</p>
+                        <span class="upload-hint">Upload 1-2 images • Supports JPG, PNG, HEIC</span>
+                    </label>
+                </div>
+                <div id="imagePreviews" class="image-previews"></div>
+            </section>
+
+            <!-- Preferences Section -->
+            <section class="preferences-section">
+                <h2>Preferences (Optional)</h2>
+                <div class="preferences-grid">
+                    <div class="pref-item">
+                        <label for="dietary">Dietary Restrictions</label>
+                        <select id="dietary">
+                            <option value="">None</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="gluten-free">Gluten-Free</option>
+                            <option value="dairy-free">Dairy-Free</option>
+                            <option value="keto">Keto</option>
+                        </select>
+                    </div>
+                    <div class="pref-item">
+                        <label for="cuisine">Cuisine Type</label>
+                        <select id="cuisine">
+                            <option value="">Any</option>
+                            <option value="italian">Italian</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="asian">Asian</option>
+                            <option value="mediterranean">Mediterranean</option>
+                            <option value="american">American</option>
+                        </select>
+                    </div>
+                    <div class="pref-item">
+                        <label for="cookingTime">Max Cooking Time</label>
+                        <select id="cookingTime">
+                            <option value="">Any</option>
+                            <option value="15">15 minutes</option>
+                            <option value="30">30 minutes</option>
+                            <option value="45">45 minutes</option>
+                            <option value="60">1 hour</option>
+                        </select>
+                    </div>
+                    <div class="pref-item">
+                        <label for="skillLevel">Skill Level</label>
+                        <select id="skillLevel">
+                            <option value="">Any</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Button -->
+            <button id="analyzeBtn" class="btn-primary" disabled>
+                Find Recipes
+            </button>
+
+            <!-- Loading State -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Analyzing your ingredients...</p>
+            </div>
+
+            <!-- Results Section -->
+            <section id="results" class="results-section hidden">
+                <h2>Detected Ingredients</h2>
+                <div id="ingredientsList" class="ingredients-list"></div>
+
+                <h2>Recipe Suggestions</h2>
+                <div id="recipesList" class="recipes-list"></div>
+            </section>
+
+            <!-- Error Message -->
+            <div id="error" class="error-message hidden"></div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+    <script src="simple-tracking.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
