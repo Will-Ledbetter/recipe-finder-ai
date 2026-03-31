@@ -8,6 +8,10 @@ AI-powered recipe suggestions based on fridge and pantry photos using AWS Bedroc
 - Get recipe suggestions based on available items
 - Filter by dietary preferences, cuisine type, cooking time
 
+## LinkedIn Post
+
+[See it in action](https://www.linkedin.com/posts/will-ledbetter-114318167_aws-amazonkiro-awskiro-activity-7406546574559846400-uyCK?utm_source=share&utm_medium=member_desktop&rcm=ACoAACe8W6ABz_yW6tZUwf4zTku75hhXakj6lxU)
+
 ## Architecture
 - **Frontend**: Static HTML/JS hosted on S3 + CloudFront
 - **API**: API Gateway + Lambda
